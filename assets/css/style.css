@@ -87,7 +87,7 @@ textarea:focus {
 }
 
 a:hover {
-	color: #d82a4e;
+	color: #091016;
 }
 
 a:hover,
@@ -292,13 +292,12 @@ ol {
 .header-btn {
 	float: right;
 	margin-right: 0;
+	
 }
 
-/* .nav-switch {
+.nav-switch {
 	display: none;
-} */
-
-
+}
 
 /*------------------
   Hero Section
@@ -705,7 +704,6 @@ ol {
 
 .footer-section {
 	border-top: 3px solid #d82a4e;
-	/* #d82a4e */
 }
 
 .footer-warp {
@@ -761,7 +759,7 @@ ol {
 	left: -5px;
 	top: 6px;
 	border-radius: 50%;
-	background: #000000;
+	background: #d82a4e;
 }
 
 .footer-newslatter {
