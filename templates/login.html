@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+
+        /* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+
+  .login-container {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+  /* Form Styles */
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  form input[type="text"], form input[type="password"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  form input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Error Message Styles */
+  
+  h3 {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive Design */
+  
+  @media (max-width: 600px) {
+    form {
+      width: 90%;
+    }
+  }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+    <form action="{% url 'login' %}" method="post">
+        {%csrf_token%}
+        <h2>Login</h2> <br>
+        <input type="text" name="username" placeholder="Username"><br><br>
+        <input type="password" name="password" placeholder="Password"><br><br>
+        <input type="submit" value="Login"> <br><br>
+        <p>Not a user ? <a href="{% url 'register' %}">Register Here</a></p>
+        <!-- ... existing login form ... -->
+        <br><br>
+        <!-- ... existing login form ... -->
+         <p><a href="{%url 'password_reset' %}"> Forgotten Password?</a></p>
+       
+        
+    </form>
+<div>
+    {% for message in messages%}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+</div>
+</body>
+</html>
