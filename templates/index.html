@@ -112,6 +112,7 @@
 
 
 	<!-- Hero section -->
+	
 	<section class="hero-section set-bg" data-setbg="{% static 'img/bg.jpg' %}">
 		<div class="container">
 			<div class="hero-text text-white">
@@ -133,7 +134,8 @@
 
 
 	<!-- categories section -->
-	<section class="categories-section spad">
+	<section class="categories-section spad" id="contact-button">
+		{% if show_contact_button %}
 		<div class="container">
 			<div class="section-title">
 				<h2>Our Free Courses </h2>
@@ -154,6 +156,7 @@
 					</div>
 				</div>
 				{% endfor %}
+				{% endif %}
 
 				<!-- categorie -->
 				<!--  -->
@@ -192,37 +195,13 @@
 								<label for="msg">Message :</label>
 								<textarea type="text" id="msg" name="msg" placeholder="Enter Message " required></textarea><br>
 						
-								
-						
-						
 								<button type="submit">Send</button>
 								<br>
 							</form>
 						
 						
-							<script src="https://smtpjs.com/v3/smtp.js"></script>
-							<script>
-								function sendEmail(){
-									Email.send({
-										Host : "smtp.elasticemail.com",
-										Username : "parth.khanna2124@gmail.com",
-										Password : "A61FA5C68B624874D0AD0F6502FA792D57E5",
-										To : 'parth.khanna2124@gmail.com',
-										From : "parth.khanna2124@gmail.com",
-										Subject : "New Admission Request",
-										Body : "<br> MRIIRS University Admission <br>"
-										+ "<br> Name : " + document.getElementById("name").value
-										+ "<br> <b>Email</b> : "+ document.getElementById("email").value 
-										+ "<br> Phone No : "+ document.getElementById("phone").value 
-										+ "<br> <b>Message</b> : "+ document.getElementById("msg").value 
-										+ "<br> <br> Contact This User"
-										}).then(
-									  message => alert(message)
-									);
-								}
-							</script>
-
-
+							
+							
 						<!-- <form class="course-search-form">
 							<input type="text" placeholder="Course">
 							<input type="text" class="last-m" placeholder="Category">
@@ -234,8 +213,8 @@
 		</div>
 	</section>
 	<!-- search section end -->
-
-
+	
+	
 	<!-- course section -->
 	<section class="course-section spad">
 		<div class="container">
@@ -253,12 +232,12 @@
 				<li class="control" data-filter=".photo">Photography</li> -->
 			</ul>                                       
 			<div class="row course-items-area">
- 
-				 <!-- JOBS -->
-
-				 {%for job in freejobs%}
-				 <div class="mix col-lg-3 col-md-4 col-sm-6 job">
-					 <div class="course-item">
+				
+				<!-- JOBS -->
+				
+				{%for job in freejobs%}
+				<div class="mix col-lg-3 col-md-4 col-sm-6 job">
+					<div class="course-item">
 						 <div class="course-thumb set-bg" data-setbg="{{job.img.url}}">
 							 <div class="price" style="background-color: rgb(3, 23, 23);">{{job.tag}} </div>
 							</div>
@@ -309,7 +288,7 @@
 	</section>
 	<!-- JOB section end -->
 
-
+	
 	<!-- signup section -->
 	<!-- <section class="signup-section spad">
 		<div class="signup-bg set-bg" data-setbg="img/signup-bg.jpg"></div>
@@ -347,22 +326,22 @@
 			</div>
 			<div class="text-center pt-5">
 				{% if user.is_authenticated %}
-
-							<li style="color: rgb(3, 23, 23); margin-left: 15px; font-weight: bold; font-size: large;  " >Hello, {{user.first_name}}</li><br>
-
-							<a style="background-color: rgb(3, 23, 23);" href="logout" class="site-btn ">Logout</a>
-							
-							{%else%}
-							<!-- <li><a href="users/register">Register</a></li> -->
-							<a style="background-color: rgb(3, 23, 23);" href="register" class="site-btn">Register Now</a> <br> <br>
+				
+				<li style="color: rgb(3, 23, 23); margin-left: 15px; font-weight: bold; font-size: large;  " >Hello, {{user.first_name}}</li><br>
+				
+				<a style="background-color: rgb(3, 23, 23);" href="logout" class="site-btn ">Logout</a>
+				
+				{%else%}
+				<!-- <li><a href="users/register">Register</a></li> -->
+				<a style="background-color: rgb(3, 23, 23);" href="register" class="site-btn">Register Now</a> <br> <br>
 							<a style="background-color: rgb(3, 23, 23);" href="login" class="site-btn">Login</a>
 							{%endif%}
 			</div>
 		</div>
 	</section>
 	<!-- banner section end -->
-
-
+	
+	
 	<!-- footer section -->
 	<footer class="footer-section spad pb-0">
 		<div class="footer-top">
@@ -425,7 +404,7 @@
 					<li><a href="#">Privacy</a></li>
 				</ul>
 				<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+					<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 			</div>
 		</div>
@@ -438,7 +417,7 @@
 		});
 	 </script>
 
-	 <script>
+	 <!-- <script>
 		document.getElementById('contact-form').addEventListener('submit', function(event) {
 		  event.preventDefault();
 		  var formData = new FormData(this);
@@ -451,19 +430,41 @@
 			} else {
 			  alert('Error sending message. Please try again.');
 			}
-		  };
-		  xhr.send(formData);
-		});
-	  </script>
-
-
-	<!--====== Javascripts & Jquery ======-->
-	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'js/mixitup.min.js' %}"></script>
-	<script src="{% static 'js/circle-progress.min.js' %}"></script>
-	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-	<script src="{% static 'js/main.js' static%}"></script>
-	
-	
-</html>
+			};
+			xhr.send(formData);
+			});
+		</script> -->
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+		<script>
+			function sendEmail(){
+				Email.send({
+					Host : "smtp.elasticemail.com",
+					Username : "parth.khanna2124@gmail.com",
+					Password : "A61FA5C68B624874D0AD0F6502FA792D57E5",
+					To : 'parth.khanna2124@gmail.com',
+					From : "parth.khanna2124@gmail.com",
+					Subject : "New Admission Request",
+					Body : "<br> MRIIRS University Admission <br>"
+					+ "<br> Name : " + document.getElementById("name").value
+					+ "<br> <b>Email</b> : "+ document.getElementById("email").value 
+					+ "<br> Phone No : "+ document.getElementById("phone").value 
+					+ "<br> <b>Message</b> : "+ document.getElementById("msg").value 
+					+ "<br> <br> Contact This User"
+					}).then(
+				  message => alert(message)
+				);
+			}
+		</script>
+		
+		
+		<!--====== Javascripts & Jquery ======-->
+		<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/mixitup.min.js' %}"></script>
+		<script src="{% static 'js/circle-progress.min.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'js/main.js' static%}"></script>
+		
+		
+		</html>
+		
