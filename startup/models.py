@@ -9,6 +9,7 @@ class courses(models.Model):
     description = models.TextField()
     link = models.TextField()
 
+# Year Wise
 class Year_1(models.Model):
     
     name = models.CharField(max_length=400)
@@ -35,3 +36,5 @@ class Year_3(models.Model):
     description = models.TextField()
     # applied = models.TextField()
     # link = models.TextField(default='https://classickcode-4zfw.onrender.com')
+
+# Semester wise 
