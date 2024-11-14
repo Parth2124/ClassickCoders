@@ -29,6 +29,9 @@ def index(request):
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
+def sem1_view(request):
+    return render(request, 'sem1_Y1.html')
+
 def contact_view(request):
     if request.method == 'POST':
         name = request.POST['name']
