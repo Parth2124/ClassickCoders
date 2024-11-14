@@ -29,8 +29,23 @@ def index(request):
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
+# year 1
 def sem1_view(request):
     return render(request, 'sem1_Y1.html')
+def sem2_view(request):
+    return render(request, 'sem2_Y1.html')
+
+# year 2
+def sem3_view(request):
+    return render(request, 'sem3_Y2.html')
+def sem4_view(request):
+    return render(request, 'sem4_Y2.html')
+
+# year 3
+def sem5_view(request):
+    return render(request, 'sem5_Y3.html')
+def sem6_view(request):
+    return render(request, 'sem6_Y3.html')
 
 def contact_view(request):
     if request.method == 'POST':

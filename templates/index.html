@@ -189,7 +189,7 @@
 		<div class="course-warp" id="course-section">
 			<ul class="course-filter controls">
 				<!-- <li class="control active" data-filter="all">All</li> -->
-				<li class="control active" data-filter=".Year_1">Year-1</li>
+				<li class="control" data-filter=".Year_1">Year-1</li>
 				<li class="control" data-filter=".Year_2">Year-2</li>
 				<li class="control" data-filter=".Year_3">Year-3</li>
 				<!-- <li class="control" data-filter=".web">Web Development</li>
@@ -215,7 +215,20 @@
 							<div class="course-author">
 								<!-- <div class="ca-pic set-bg" data-setbg="{% static 'img/authors/2.jpg' %}"></div>
 								<p>William Parker, <span>Developer</span></p> -->
-								<a href="{{Year_1.link}}"><button class="btn">Apply Now</button></a>
+								{% if Year_1.tag == 'Sem1' %}
+								<a href="{% url 'sem1_Y1' %}">
+									<button class="btn">Apply Now</button>
+								</a>
+							{% elif Year_1.tag == 'Sem2' %}
+								<a href="{% url 'sem2_Y1' %}">
+									<button class="btn">Apply Now</button>
+								</a>
+							{% else %}
+								<a href="#">
+									<button class="btn">Unavailable</button>
+								</a>
+							{% endif %}
+								<!-- {{Year_1.link}} -->
 							</div>
 						</div>
 					</div>
@@ -240,7 +253,19 @@
 							<div class="course-author">
 								<!-- <div class="ca-pic set-bg" data-setbg="{% static 'img/authors/2.jpg' %}"></div>
 								<p>William Parker, <span>Developer</span></p> -->
-								<a href="{{Year_2.link}}"><button class="btn">Apply Now</button></a>
+								{% if Year_2.tag == 'Sem3' %}
+								<a href="{% url 'sem3_Y2' %}">
+									<button class="btn">Apply Now</button>
+								</a>
+							{% elif Year_2.tag == 'Sem4' %}
+								<a href="{% url 'sem4_Y2' %}">
+									<button class="btn">Apply Now</button>
+								</a>
+							{% else %}
+								<a href="#">
+									<button class="btn">Unavailable</button>
+								</a>
+							{% endif %}				
 							</div>
 						</div>
 					</div>
@@ -260,8 +285,19 @@
 							<div class="course-author">
 								<!-- <div class="ca-pic set-bg" data-setbg="{% static 'img/authors/2.jpg' %}"></div>
 								<p>William Parker, <span>Developer</span></p> -->
-								<a href="{{Year_3.link}}"><button class="btn">Apply Now</button></a>
-							</div>
+								{% if Year_3.tag == 'Sem3' %}
+								<a href="{% url 'sem5_Y3' %}">
+									<button class="btn">Apply Now</button>
+								</a>
+							{% elif Year_3.tag == 'Sem4' %}
+								<a href="{% url 'sem6_Y3' %}">
+									<button class="btn">Apply Now</button>
+								</a>
+							{% else %}
+								<a href="#">
+									<button class="btn">Unavailable</button>
+								</a>
+							{% endif %}										</div>
 						</div>
 					</div>
 				</div>
