@@ -178,6 +178,7 @@
 	<!-- search section end -->
 	
 	
+	
 	<!-- course section -->
 	<section class="course-section spad">
 		<div class="container">
@@ -297,7 +298,8 @@
 								<a href="#">
 									<button class="btn">Unavailable</button>
 								</a>
-							{% endif %}										</div>
+							{% endif %}						
+							</div>
 						</div>
 					</div>
 				</div>
@@ -310,6 +312,8 @@
 	<!-- JOB section end -->
 	
 	<!-- courses online section -->
+	
+	{% if user.is_authenticated %}
 	{% if show_contact_button %}
 	<section class="categories-section spad" id="online-course">
 		<div class="container">
@@ -335,6 +339,9 @@
 			</div>
 		</section>
 		{% endif %}
+		{%else%}
+		<center><b><h6>Please <a href="login">login</a> for more study material</h6></b></center>
+		{%endif%}
 	
 	<!-- signup section -->
 	<!-- <section class="signup-section spad">

@@ -17,6 +17,8 @@ urlpatterns =  [
     path("login/",views.login,name="login"),
     path("logout/",views.logout,name="logout"),
 
+    path('sem1_core/', views.sem1core_view, name='sem1_core'),
+
      path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),

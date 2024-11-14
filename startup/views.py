@@ -47,6 +47,9 @@ def sem5_view(request):
 def sem6_view(request):
     return render(request, 'sem6_Y3.html')
 
+# core_sem1
+def sem1core_view(request):
+    return render(request, "core/sem1/sem1core.html")
 def contact_view(request):
     if request.method == 'POST':
         name = request.POST['name']

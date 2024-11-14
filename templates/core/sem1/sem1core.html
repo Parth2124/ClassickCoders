@@ -84,7 +84,7 @@
 						<ul>
 							<li><a href="/">Home</a></li>
 							
-							<li><a href="#" id="sem1">Semester-1</a></li> 
+							<li><a href="#" id="sem1">Core-Subjects</a></li> 
 							{% if show_contact_button %}
 							<li><a href="/" id="online-course-button">Courses</a></li>
 							{% endif %}
@@ -110,7 +110,7 @@
 	<section class="hero-section set-bg" data-setbg="{% static 'img/bg.jpg' %}">
 		<div class="container">
 			<div class="hero-text text-white">
-				<h2>Semester - 1 | BCA </h2>
+				<h2>Semester - 1 | Core Subjects </h2>
 				<p> Why go to college when you can get notes sitting at home? <br> Get Set Go! </p>
 			</div>
 		
@@ -151,28 +151,21 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="categorie-item">
-						<div class="ci-thumb set-bg" data-setbg="{% static 'img/bg.jpg' %}"></div>
-						<div class="ci-text" style="background-color: rgb(3, 23, 23);">
-							<h5>Core Subjects</h5>
-							<p> Semester 1 core</p>
-							<a href="{% url 'sem1_core' %}"><button class="btn" type="submit" >Enroll</button></a>
-						</div>
-					</div>
-				</div>
-
 
 				<div class="col-lg-4 col-md-6">
 					<div class="categorie-item">
 						<div class="ci-thumb set-bg" data-setbg="{% static 'img/bg.jpg' %}"></div>
 						<div class="ci-text" style="background-color: rgb(3, 23, 23);">
-							<h5>Assignments</h5>
-							<p> Semester 1 Assignments</p>
-							<a href="{% url 'sem1_Y1' %}"><button class="btn" type="submit" >Enroll</button></a>
+							<h5>Syllabus</h5>
+							<p> BCA Syllabus</p>
+							<a href="{% static 'pdfs/sem1/syllabus.pdf' %}" target="_blank"><button class="btn" type="submit" >Open</button></a>
 						</div>
 					</div>
 				</div>
+				
+
+
+				
 			</div>
 		</section>
 	
@@ -192,34 +185,7 @@
 	
 	
 	<!-- footer section -->
-	<footer class="footer-section spad pb-0">
-		<div class="footer-top">
-			<div class="footer-warp">
-				<div class="row">
-					<div class="widget-item">
-						<h4>Contact Info</h4>
-						<ul class="contact-list">
-							<li>Ghaziabad, <br> U.P</li>
-							<li>+91 8130112728</li>
-							<li>classickcode@gmail.com</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<div class="footer-warp">
-				<ul class="footer-menu">
-					<li><a href="#">Terms & Conditions</a></li>
-					<li><a href="#">Register</a></li>
-					<li><a href="#">Privacy</a></li>
-				</ul>
-				<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-			</div>
-		</div>
-	</footer> 
+	
 	<!-- footer section end -->
 	 <script>
 		document.getElementById('sem1').addEventListener('click', function(event) {
