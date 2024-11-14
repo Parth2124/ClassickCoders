@@ -88,9 +88,9 @@
 						<ul>
 							<li><a href="/">Home</a></li>
 							
-							<li><a href="#" id="contact-button">Contact</a></li> 
+							<li><a href="#" id="BCA-button">BCA</a></li> 
 							{% if show_contact_button %}
-							<li><a href="/">Courses</a></li>
+							<li><a href="/" id="online-course-button">Courses</a></li>
 							{% endif %}
 
 							{% if user.is_authenticated %}
@@ -133,62 +133,29 @@
 	<!-- Hero section end -->
 
 
-	<!-- categories section -->
-	<section class="categories-section spad" id="contact-button">
-		{% if show_contact_button %}
-		<div class="container">
-			<div class="section-title">
-				<h2>Our Free Courses </h2>
-				<p> These Courses are Updating on daily basis & The courses are free for first 1000 enrollments</p>
-			</div>
-			<div class="row">
-				<!-- categorie -->
-
-				{%for course in freecourses %}
-				<div class="col-lg-4 col-md-6">
-					<div class="categorie-item">
-						<div class="ci-thumb set-bg" data-setbg="{{course.img.url}}"></div>
-						<div class="ci-text" style="background-color: rgb(3, 23, 23);">
-							<h5>{{course.name}}</h5>
-							<p> {{course.description}} </p>
-							<a href="{{course.link}}"><button class="btn" type="submit" >Enroll</button></a>
-						</div>
-					</div>
-				</div>
-				{% endfor %}
-				{% endif %}
-
-				<!-- categorie -->
-				<!--  -->
-				<!-- categorie -->
-				<!--  -->
-				<!-- categorie -->
-
-		</div>
-	</section>
 	<!-- categories section end -->
-
-
+	
+	
 	<!-- contact section -->
-	<section class="course-section spad" id="course-section" >
+	<!-- <section class="course-section spad" id="course-section" >
 		<div class="container" >
 			<div class="search-warp" style="background-color: rgb(0, 0, 0);">
 				<div class="section-title text-white">
 					<h2>Join Us/Contact Us</h2>
 				</div>
 				<div class="row">
-					<div class="col-md-10 offset-md-1">
+					<div class="col-md-10 offset-md-1"> -->
 						<!-- search form -->
 						
-						<form method="post"  onsubmit="sendEmail(); reset(); return false;">
+						<!-- <form method="post"  onsubmit="sendEmail(); reset(); return false;">
 							{% csrf_token %}
 						
 								<label for="name">Name:</label>
 								<input type="text" id="name" name="name" placeholder="Enter your Name..." required><br>
-						
+								
 								<label for="email">Email:</label>
 								<input type="email" id="email" name="email" placeholder="Enter your Email..." required><br>
-						
+								
 								<label for="phone">Phone:</label>
 								<input type="text" id="phone" name="phone" placeholder="Enter your Phone Number..." required><br>
 						
@@ -197,21 +164,17 @@
 						
 								<button type="submit">Send</button>
 								<br>
-							</form>
-						
-						
-							
-							
+							</form>	 -->
 						<!-- <form class="course-search-form">
 							<input type="text" placeholder="Course">
 							<input type="text" class="last-m" placeholder="Category">
 							<button class="site-btn">Search Couse</button>
 						</form> -->
-					</div>
+					<!-- </div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- search section end -->
 	
 	
@@ -223,11 +186,12 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada lorem maximus mauris scelerisque, at rutrum nulla dictum. Ut ac ligula sapien. Suspendisse cursus faucibus finibus.</p>
 			</div>
 		</div>
-		<div class="course-warp">
+		<div class="course-warp" id="course-section">
 			<ul class="course-filter controls">
-				<li class="control active" data-filter="all">All</li>
-				<li class="control" data-filter=".job">Jobs</li>
-				<li class="control" data-filter=".internship">Internships</li>
+				<!-- <li class="control active" data-filter="all">All</li> -->
+				<li class="control active" data-filter=".Year_1">Year-1</li>
+				<li class="control" data-filter=".Year_2">Year-2</li>
+				<li class="control" data-filter=".Year_3">Year-3</li>
 				<!-- <li class="control" data-filter=".web">Web Development</li>
 				<li class="control" data-filter=".photo">Photography</li> -->
 			</ul>                                       
@@ -235,22 +199,22 @@
 				
 				<!-- JOBS -->
 				
-				{%for job in freejobs%}
-				<div class="mix col-lg-3 col-md-4 col-sm-6 job">
+				{%for Year_1 in Year1 %}
+				<div class="mix col-lg-3 col-md-4 col-sm-6 Year_1">
 					<div class="course-item">
-						 <div class="course-thumb set-bg" data-setbg="{{job.img.url}}">
-							 <div class="price" style="background-color: rgb(3, 23, 23);">{{job.tag}} </div>
-							</div>
-							<div class="course-info" style="background-color: rgb(3, 23, 23);">
-								<div class="course-text">
-									<h5>{{job.name}}</h5>
-									<p>{{job.description}} </p>
-								<div class="students">{{job.applied}}</div>
+						<!-- <div class="course-thumb set-bg" data-setbg="{{job.img.url}}"> -->
+							<div class="price" style="background-color: rgb(3, 23, 23);">{{Year_1.tag}} </div>
+						
+						<div class="course-info" style="background-color: rgb(3, 23, 23);">
+							<div class="course-text">
+									<h5>{{Year_1.name}}</h5>
+									<p>{{Year_1.description}} </p>
+								<div class="students">{{Year_1.applied}}</div>
 							</div>
 							<div class="course-author">
 								<!-- <div class="ca-pic set-bg" data-setbg="{% static 'img/authors/2.jpg' %}"></div>
 								<p>William Parker, <span>Developer</span></p> -->
-								<a href="{{job.link}}"><button class="btn">Apply Now</button></a>
+								<a href="{{Year_1.link}}"><button class="btn">Apply Now</button></a>
 							</div>
 						</div>
 					</div>
@@ -260,22 +224,42 @@
 
 				<!-- INTERNSHIPS -->
 
-				{%for internship in freeinternships%}
-				<div class="mix col-lg-3 col-md-4 col-sm-6 internship">
+				{%for Year_2 in Year2 %}
+				<div class="mix col-lg-3 col-md-4 col-sm-6 Year_2">
 					<div class="course-item">
-						<div class="course-thumb set-bg" data-setbg="{{internship.img.url}}">
-							<div class="price" style="background-color: rgb(3, 23, 23);">{{internship.tag}}</div>
-						</div>
+						<!-- <div class="course-thumb set-bg" data-setbg="{{internship.img.url}}"> -->
+							<div class="price" style="background-color: rgb(3, 23, 23);">{{Year_2.tag}}</div>
+						
 						<div class="course-info" style="background-color: rgb(3, 23, 23);">
 							<div class="course-text">
-								<h5>{{internship.name}} </h5>
-								<p>{{internship.description}} </p>
-								<div class="students">{{internship.applied}} </div>
+								<h5>{{Year_2.name}} </h5>
+								<p>{{Year_2.description}} </p>
+								<div class="students">{{Year_2.applied}} </div>
 							</div>
 							<div class="course-author">
 								<!-- <div class="ca-pic set-bg" data-setbg="{% static 'img/authors/2.jpg' %}"></div>
 								<p>William Parker, <span>Developer</span></p> -->
-								<a href="{{internship.link}}"><button class="btn">Apply Now</button></a>
+								<a href="{{Year_2.link}}"><button class="btn">Apply Now</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{%endfor%}
+			
+				{%for Year_3 in Year3 %}
+				<div class="mix col-lg-3 col-md-4 col-sm-6 Year_3">
+					<div class="course-item">
+							<div class="price" style="background-color: rgb(3, 23, 23);">{{Year_3.tag}}</div>
+						<div class="course-info" style="background-color: rgb(3, 23, 23);">
+							<div class="course-text">
+								<h5>{{Year_3.name}} </h5>
+								<p>{{Year_3.description}} </p>
+								<div class="students">{{Year_3.applied}} </div>
+							</div>
+							<div class="course-author">
+								<!-- <div class="ca-pic set-bg" data-setbg="{% static 'img/authors/2.jpg' %}"></div>
+								<p>William Parker, <span>Developer</span></p> -->
+								<a href="{{Year_3.link}}"><button class="btn">Apply Now</button></a>
 							</div>
 						</div>
 					</div>
@@ -287,7 +271,32 @@
 		</div>
 	</section>
 	<!-- JOB section end -->
-
+	
+	<!-- courses online section -->
+	{% if show_contact_button %}
+	<section class="categories-section spad" id="online-course">
+		<div class="container">
+			<div class="section-title">
+				<h2>Our Free Courses </h2>
+				<p> These Courses are Updating on daily basis & The courses are free for first 1000 enrollments</p>
+			</div>
+			<div class="row">
+				<!-- categorie -->
+				{%for course in freecourses %}
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/bg.jpg' %}"></div>
+						<div class="ci-text" style="background-color: rgb(3, 23, 23);">
+							<h5>{{course.name}}</h5>
+							<p> {{course.description}} </p>
+							<a href="{{course.link}}"><button class="btn" type="submit" >Enroll</button></a>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				{% endif %}
+		</div>
+	</section>
 	
 	<!-- signup section -->
 	<!-- <section class="signup-section spad">
@@ -411,9 +420,15 @@
 	</footer> 
 	<!-- footer section end -->
 	 <script>
-		document.getElementById('contact-button').addEventListener('click', function(event) {
+		document.getElementById('BCA-button').addEventListener('click', function(event) {
 			event.preventDefault();
 			document.getElementById('course-section').scrollIntoView({ behavior: 'smooth' });
+		});
+	 </script>
+	 <script>
+		document.getElementById('online-course-button').addEventListener('click', function(event) {
+			event.preventDefault();
+			document.getElementById('online-course').scrollIntoView({ behavior: 'smooth' });
 		});
 	 </script>
 

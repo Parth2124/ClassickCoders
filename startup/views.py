@@ -1,5 +1,5 @@
 from django.shortcuts import render , redirect
-from .models import courses , jobs , internships
+from .models import courses , Year_1 , Year_2 , Year_3
 from django.core.mail import send_mail
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
@@ -12,8 +12,9 @@ def index(request):
 
 
     freecourses = courses.objects.all()
-    freejobs = jobs.objects.all()
-    freeinternships = internships.objects.all()
+    Year1 = Year_1.objects.all()
+    Year2 = Year_2.objects.all()
+    Year3 = Year_3.objects.all()
 
 
 
@@ -23,7 +24,7 @@ def index(request):
         show_contact_button = False
         # return render(request, 'index.html', {'show_contact_button': show_contact_button})
 
-    return render(request, 'index.html',{'freecourses': freecourses , 'freejobs' :freejobs , 'freeinternships' : freeinternships , 'show_contact_button': show_contact_button})
+    return render(request, 'index.html',{'freecourses': freecourses , 'Year1' :Year1 , 'Year2' : Year2 , 'Year3': Year3,  'show_contact_button': show_contact_button})
 
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
