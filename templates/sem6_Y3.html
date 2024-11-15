@@ -1,11 +1,249 @@
+
+
+{% load static %}
+{% static "img" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<title>ClassickCode</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="WebUni Education Template">
+	<meta name="keywords" content="webuni, education, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="{% static 'img/favicon.png' %}" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800,800i' %}"  type='text/css' rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+	
+	<style>
+		.btn{
+			background-color: rgb(11, 28, 35);
+			color: white;
+			border-radius: 10px;
+		}
+		
+		
+		form input,textarea{
+			border-radius: 10px;
+			border: 1px solid rgb(255, 255, 255);
+			background-color: aliceblue;
+			color: rgb(15, 36, 46);
+			padding: 10px;
+			display: flex;
+            flex-direction: column;
+			width: 100%;
+		}
+
+		form{
+			display: flex;
+            flex-direction: column;
+		}
+		form button{
+			background-color: rgb(11, 28, 35);
+			color: white;
+			border-radius: 10px;
+			padding: 10px;
+		}
+
+		
+
+	
+	</style>
+
 </head>
 <body>
-    Semester 6
-</body>
-</html>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3">
+					<div class="site-logo">
+						<img style="margin-top: 10px;" src="{% static 'img/codelogo.png' %}" alt="">
+					</div>
+					<div class="nav-switch" >
+						<i class="fa fa-bars"></i>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-9">
+					<nav class="main-menu">
+						<ul>
+							<li><a href="/">Home</a></li>
+							
+							<li><a href="#" id="sem1">Semester-6</a></li> 
+							{% if show_contact_button %}
+							<li><a href="/" id="online-course-button">Courses</a></li>
+							{% endif %}
+ 
+							{% if user.is_authenticated %}
+
+							<li style="color: rgb(3, 23, 23); margin-left: 70px; font-weight: bold; font-size: large; " >Hello, {{user.first_name}}</li>
+							<!-- <a style="background-color: rgb(3, 23, 23);" href="logout" class="site-btn header-btn" >Logout</a> -->
+							<!-- <li><a href="register">Register</a></li> -->
+							<!-- <a style="background-color: rgb(3, 23, 23);" href="login" class="site-btn header-btn">Login</a> -->
+							{%endif%} 
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Hero section -->
+	
+	<section class="hero-section set-bg" data-setbg="{% static 'img/bg.jpg' %}">
+		<div class="container">
+			<div class="hero-text text-white">
+				<h2>Semester - 6 | BCA </h2>
+				<p> Why go to college when you can get notes sitting at home? <br> Get Set Go! </p>
+			</div>
+		
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- categories section end -->
+	
+	
+	<!-- contact section -->
+
+	<!-- search section end -->
+	
+	
+	<!-- course section -->
+    <section class="categories-section spad" id="online-course">
+		<div class="container" id="sem1_help">
+			<div class="section-title">
+				<h2>| All Subjects |</h2>
+				<p>| Your Last Resort | </p>
+			</div>
+			<div class="row">
+        	<!-- categorie -->
+             
+          
+				<!-- <a href="{% static 'pdfs/sem1/syllabus.pdf' %}" target="_blank">
+					<button class="btn" type="submit">Open PDF</button>
+				</a> -->
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/bg.jpg' %}"></div>
+						<div class="ci-text" style="background-color: rgb(3, 23, 23);">
+							<h5>Syllabus</h5>
+							<p> BCA Syllabus</p>
+							<a href="{% static 'pdfs/sem1/syllabus.pdf' %}" target="_blank"><button class="btn" type="submit" >Open</button></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/bg.jpg' %}"></div>
+						<div class="ci-text" style="background-color: rgb(3, 23, 23);">
+							<h5>Core Subjects</h5>
+							<p> Semester 6 core</p>
+							<a href="{% url 'sem6_Y3' %}"><button class="btn" type="submit" >Enroll</button></a>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="col-lg-4 col-md-6">
+					<div class="categorie-item">
+						<div class="ci-thumb set-bg" data-setbg="{% static 'img/bg.jpg' %}"></div>
+						<div class="ci-text" style="background-color: rgb(3, 23, 23);">
+							<h5>Assignments</h5>
+							<p> Semester 6 Assignments</p>
+							<a href="{% url 'sem6_Y3' %}"><button class="btn" type="submit" >Enroll</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+	<!-- JOB section end -->
+	
+	<!-- courses online section -->
+	
+	
+	<!-- signup section -->
+
+	<!-- signup section end -->
+
+
+	<!-- banner section -->
+
+	<!-- banner section end -->
+	
+	
+	<!-- footer section -->
+	<footer class="footer-section spad pb-0">
+		<div class="footer-top">
+			<div class="footer-warp">
+				<div class="row">
+					<div class="widget-item">
+						<h4>Contact Info</h4>
+						<ul class="contact-list">
+							<li>Ghaziabad, <br> U.P</li>
+							<li>+91 8130112728</li>
+							<li>classickcode@gmail.com</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="footer-warp">
+				<ul class="footer-menu">
+					<li><a href="#">Terms & Conditions</a></li>
+					<li><a href="#">Register</a></li>
+					<li><a href="#">Privacy</a></li>
+				</ul>
+				<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+			</div>
+		</div>
+	</footer> 
+	<!-- footer section end -->
+	 <script>
+		document.getElementById('sem1').addEventListener('click', function(event) {
+			event.preventDefault();
+			document.getElementById('sem1_help').scrollIntoView({ behavior: 'smooth' });
+		});
+	 </script>
+	 <script>
+		document.getElementById('online-course-button').addEventListener('click', function(event) {
+			event.preventDefault();
+			document.getElementById('online-course').scrollIntoView({ behavior: 'smooth' });
+		});
+	 </script>
+
+		
+		
+		<!--====== Javascripts & Jquery ======-->
+		<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/mixitup.min.js' %}"></script>
+		<script src="{% static 'js/circle-progress.min.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'js/main.js' static%}"></script>
+		
+		
+		</html>
+		
