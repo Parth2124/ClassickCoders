@@ -190,7 +190,7 @@
 		<div class="course-warp" id="course-section">
 			<ul class="course-filter controls">
 				<!-- <li class="control active" data-filter="all">All</li> -->
-				<li class="control" data-filter=".Year_1">Year-1</li>
+				<li class="control active" data-filter=".Year_1">Year-1</li>
 				<li class="control" data-filter=".Year_2">Year-2</li>
 				<li class="control" data-filter=".Year_3">Year-3</li>
 				<!-- <li class="control" data-filter=".web">Web Development</li>
@@ -240,7 +240,7 @@
 				<!-- INTERNSHIPS -->
 
 				{%for Year_2 in Year2 %}
-				<div class="mix col-lg-3 col-md-4 col-sm-6 Year_2">
+				<div class="mix col-lg-3 col-md-4 col-sm-6 Year_2" style="display: none;">
 					<div class="course-item">
 						<!-- <div class="course-thumb set-bg" data-setbg="{{internship.img.url}}"> -->
 							<div class="price" style="background-color: rgb(3, 23, 23);">{{Year_2.tag}}</div>
@@ -274,7 +274,7 @@
 				{%endfor%}
 			
 				{%for Year_3 in Year3 %}
-				<div class="mix col-lg-3 col-md-4 col-sm-6 Year_3">
+				<div class="mix col-lg-3 col-md-4 col-sm-6 Year_3" style="display: none;">
 					<div class="course-item">
 							<div class="price" style="background-color: rgb(3, 23, 23);">{{Year_3.tag}}</div>
 						<div class="course-info" style="background-color: rgb(3, 23, 23);">
